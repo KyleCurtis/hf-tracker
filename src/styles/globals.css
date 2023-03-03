@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+  --dark-bg-contrast: #000000;
+  --dark-bg: #111111;
+  --dark-border: #333333;
+}
+
+
 *,
 *::before,
 *::after {
@@ -46,6 +54,8 @@ a {
   /* Sets the thickness as a percentage of the font size */
   text-decoration-thickness: 8;
 }
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   html {
