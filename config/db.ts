@@ -1,11 +1,12 @@
-import { PrismaClient } from '@prisma/client'
+/* https://next-auth.js.org/adapters/prisma */
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient }
+import { PrismaClient } from "@prisma/client"
 
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log: ['query'],
-  })
+declare global {
+  var prisma: PrismaClient | undefined
+}
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+const client = globalThis.prisma || new PrismaClient()
+if (process.env.NODE_ENV !== "production") globalThis.prisma = client
+
+export default client

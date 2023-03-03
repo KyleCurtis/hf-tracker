@@ -22,6 +22,12 @@ export default async function handler(req: any, res: any) {
 async function addUser(req: any, res: any) {
   const body = req.body;
 
+  // Check for null values in the request body
+  if (!body.firstName || !body.lastName || !body.email || !body.username || !body.password) {
+    return res.status(400).json({ error: "Missing input values", success: false });
+  }
+
+
   try {
     const newEntry = await prisma.userRequired.create({
       data: {
