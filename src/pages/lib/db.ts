@@ -1,5 +1,3 @@
-/* https://next-auth.js.org/adapters/prisma */
-
 import { PrismaClient } from "@prisma/client"
 
 declare global {
