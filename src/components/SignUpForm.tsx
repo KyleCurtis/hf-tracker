@@ -7,7 +7,15 @@ const SignUpForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: any) => {
+  useEffect(() => {
+    console.log("email:", email);
+    console.log("firstName:", firstName);
+    console.log("lastName:", lastName);
+    console.log("username:", username);
+    console.log("password:", password);
+  }), [];
+
+  const handleSubmit = async(e: any) => {
     e.preventDefault();
     const body = { email, firstName, lastName, username, password };
     try {
@@ -17,31 +25,23 @@ const SignUpForm = () => {
         body: JSON.stringify(body),
       });
       if (response.status !== 200) {
-        console.log("something went wrong");
+        alert("something went wrong");
       } else {
-        resetForm;
-        console.log("form submitted successfully!");
+        resetForm();
+        alert("form submitted successfully!");
       }
     } catch (error) {
-      console.log("There was an error submitting!", error);
+      console.log("There was an error submitting", error);
     }
   };
 
   const resetForm = () => {
-    setEmail("");
+    setEmail("test");
     setFirstName("");
     setLastName("");
     setUsername("");
     setPassword("");
   };
-
-  /*useEffect(() => {
-    console.log("email:", email);
-    console.log("firstName:", firstName);
-    console.log("lastName:", lastName);
-    console.log("username:", username);
-    console.log("password:", password);
-  }) */
 
   return (
     <>
@@ -71,7 +71,7 @@ const SignUpForm = () => {
             placeholder="Email"
           />
 
-        <input
+          <input
             onChange={(e) => setUsername(e.target.value)}
             type="text"
             className="block border border-grey-light w-full p-3 rounded mb-4 bg-[#dddddd] dark:bg-[var(--dark-bg-contrast)] text-black dark:text-white"
@@ -87,7 +87,6 @@ const SignUpForm = () => {
             placeholder="Password"
           />
           <input
-            onChange={(e) => setPassword(e.target.value)}
             type="password"
             className="block border border-grey-light w-full p-3 rounded mb-4 bg-[#dddddd] dark:bg-[var(--dark-bg-contrast)] text-black dark:text-white"
             name="confirm_password"
@@ -95,7 +94,7 @@ const SignUpForm = () => {
           />
 
           <button
-          onClick={handleSubmit}
+            onClick={handleSubmit}
             type="submit"
             className="text-black w-full text-center font-bold py-3 rounded bg-green-400 hover:bg-[darkgreen] focus:outline-none my-1 border-solid border-2 border-[var(--dark-border)]"
           >

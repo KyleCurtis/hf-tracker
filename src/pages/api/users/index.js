@@ -44,12 +44,10 @@ const getUser = async (req, res) => {
 const addUser = async (req, res) => {
   const body = req.body;
   try {
-    // Extract the email, firstName, lastName, username, and password properties from the request body
-    const { email, firstName, lastName, username, password } = req.body;
 
     // Define a data object with properties matching the database schema
     // Use the Prisma client to create a new user record in the database with the data object
-    const result = await prisma.userRequired.create({
+    const newEntry = await prisma.userRequired.create({
       data: {
         email: body.email,
         firstName: body.firstName,
@@ -60,9 +58,9 @@ const addUser = async (req, res) => {
     });
 
     // Return a response with HTTP status code 200 and the newly created record's ID in JSON format
-    return res.status(200).json(result);
+    return res.status(200).json(newEntry, {success: true});
   } catch (error) {
     // If an error occurs, return a response with HTTP status code 500 and the error message in JSON format
-    return res.status(500).json(error);
+    return res.status(500).json({error: "Error creating user", success: false});
   }
 };
