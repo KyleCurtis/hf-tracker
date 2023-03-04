@@ -14,9 +14,9 @@ const TopNav = () => {
           <li className="p-4">
             <ThemeToggler />
           </li>
-          <li className="p-4">
+          <li className="p-4 text-[1.2rem]">
             <Link href="/">
-              <p>Home</p>
+              <p>HF-Tracker</p>
             </Link>
           </li>
         </ul>
