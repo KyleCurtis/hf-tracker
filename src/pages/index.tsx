@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import {useSession, signIn, signOut} from "next-auth/react"
 import Link from 'next/link'
+import Image from 'next/image';
 
 export default function Home() {
 
@@ -16,7 +17,12 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-          <img src={session.user?.image} alt="" />
+          <Image 
+          src={session.user?.image ?? "../../public/favicon.ico"}
+          alt="user image"
+          width={90}
+          height={90}
+          />
         Welcome, {session.user?.name} 
         <br /> <br/>
         <Link href="/dashboard">

@@ -1,5 +1,6 @@
 import TopNav from "@/components/TopNav";
 import { getSession, signOut } from "next-auth/react";
+import Image from "next/image"
 
 export async function getServerSideProps(context: any) {
   const session = await getSession(context);
@@ -27,7 +28,12 @@ export default function Dashboard({ session }: any) {
       <br />
       <div className="border-black border-2 border-solid rounded-lg p-5 max-w-2xl m-auto">
         <div className="w-[90px] h-[90px] rounded-[50%] overflow-hidden border-2 border-black border-solid">
-          <img src={session.user?.image} alt="" />
+        <Image 
+          src={session.user?.image ?? "../../public/favicon.ico"}
+          alt="user image"
+          width={90}
+          height={90}
+          />
         </div>
         <br />
         <p>User: {session.user.name}</p>
