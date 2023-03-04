@@ -6,7 +6,8 @@ import prisma from "../../../../lib/prismadb";
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.JWT_SECRET,
-  
+  debug: true,
+
   /* PROVIDER CONFIGURATION
   ===================================================================================== */
   providers: [
