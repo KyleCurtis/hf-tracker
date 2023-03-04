@@ -16,9 +16,7 @@
     box-sizing: border-box;
 }
 
-* {
-  border: none;
-}
+
 
 html {
   font-size: 14px; /* ROOT FONT SIZE */
