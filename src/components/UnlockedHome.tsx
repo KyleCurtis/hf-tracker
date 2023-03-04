@@ -32,14 +32,16 @@ const UnlockedHome = ({ children }: any) => {
 
           <div className="border-2 border-solid border-black dark:border-white p-10 max-w-[700px] m-auto mt-[100px] rounded-xl">
             <Image
-              src={session.user?.image ?? "../../public/favicon.ico"}
+              src={session?.user?.image ?? "../../public/favicon.ico"}
               alt="user image"
               width={90}
               height={90}
               className="m-auto"
             />
             <br />
-            <p className="text-center text-xl">Welcome, {session.user?.name}</p>
+            <p className="text-center text-xl">
+              Welcome, {session?.user?.name}
+            </p>
             <br /> <br />
             <Link href="/dashboard">
               <button className="p-2 border-2 border-black border-solid rounded-lg bg-blue-500 text-white font-bold">
