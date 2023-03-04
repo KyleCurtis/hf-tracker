@@ -1,12 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 import ThemeToggler from "./ThemeToggle";
-
-import {SiCplusplus, SiJavascript, SiPython, SiRust, SiTypescript} from "react-icons/si";
-
-import { FaHome } from "react-icons/fa";
 
 const TopNav = () => {
     return (
@@ -24,27 +19,9 @@ const TopNav = () => {
             <p>Home</p>
             </Link>
           </li>
-          <li className="p-4">
-            <Link href="/">
-            <p>About</p>
-            </Link>
-          </li>
-          <li className="p-4">
-            <Link href="/">
-              <p>Diet</p>
-            </Link>
-          </li>
-          <li className="p-4">
-            <Link href="/">
-            <p>Fitness</p>
-            </Link>
-          </li>
-          
           
         </ul>
 
-        {/* DRAWER COMPONENT
-        ========================================================================================= */}
       </nav>
     </div>
     )
