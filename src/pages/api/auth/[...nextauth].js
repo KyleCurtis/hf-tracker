@@ -6,6 +6,7 @@ import { redirect } from "next/dist/server/api-utils";
 
 export default NextAuth({
   adapter: PrismaAdapter(prisma),
+  secret: process.env.JWT_SECRET,
   
   /* PROVIDER CONFIGURATION
   ===================================================================================== */
