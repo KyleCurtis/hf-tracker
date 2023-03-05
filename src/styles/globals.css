@@ -29,15 +29,15 @@ h1 {
 }
 
 h2 {
-  font-size: 3.0rem;
-}
-
-h3 {
   font-size: 2.5rem;
 }
 
+h3 {
+  font-size: 2.0rem;
+}
+
 h4 {
-  font-size: 2.0 rem;
+  font-size: 1.4 rem;
 }
 
 img {
