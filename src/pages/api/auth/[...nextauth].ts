@@ -16,7 +16,7 @@ const options = {
   ],
 
   adapter: PrismaAdapter(prisma),
-  secret: process.env.JWT_SECRET,
+  secret: process.env.JWT_SECRET as string,
 
   debug: true,
 };
