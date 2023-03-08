@@ -97,8 +97,5 @@ const LockedHome = ({ children }: any) => {
   );
 };
 
-<<<<<<< HEAD
+
 export default LockedHome;
-=======
-export default LockedHome;
->>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
