@@ -4,6 +4,7 @@ import LockedHome from "@/components/LockedHome";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 
+
 export default function Home({ data }: any) {
   if (data) {
     return <UnlockedHome />;
