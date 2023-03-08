@@ -14,11 +14,7 @@ const Hero = ({ Heading, Window, HeroBody }: any) => {
           </div>
           <div>
             <h1 className="text-[24px]">{Heading}</h1>
-<<<<<<< HEAD
             <div>{HeroBody}</div>
-=======
-            <p>{HeroBody}</p>
->>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
           </div>
         </Flex>
       </Card>
