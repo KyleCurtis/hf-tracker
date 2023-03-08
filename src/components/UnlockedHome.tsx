@@ -3,6 +3,7 @@ import Image from "next/image";
 import TopNav from "./TopNav";
 import Hero from "./Hero";
 import { useSession, signOut } from "next-auth/react";
+<<<<<<< HEAD
 import { Card, Title, AreaChart, Flex, Text } from "@tremor/react";
 import Link from "next/link";
 
@@ -41,6 +42,10 @@ const dataFormatter = (number: number) => {
   return Intl.NumberFormat("us").format(number).toString() + " mile(s)";
 };
 
+=======
+import Link from "next/link";
+
+>>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
 const UnlockedHome = ({ children }: any) => {
   const { data: session } = useSession();
 
@@ -51,7 +56,11 @@ const UnlockedHome = ({ children }: any) => {
       </div>
     );
   };
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
   return (
     <>
       <Head>
@@ -74,7 +83,11 @@ const UnlockedHome = ({ children }: any) => {
             Heading={session?.user?.name + "'s Dashboard"}
             HeroBody={
               <div>
+<<<<<<< HEAD
                 <div>{"Email: " + session?.user?.email}</div>
+=======
+                <p>{"Email: " + session?.user?.email}</p>
+>>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
 
                 <br />
 
@@ -88,7 +101,11 @@ const UnlockedHome = ({ children }: any) => {
             }
             Window={
               <Image
+<<<<<<< HEAD
                 src={session?.user?.image ?? "/favicon.ico"}
+=======
+                src={session?.user?.image ?? "../../public/favicon.ico"}
+>>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
                 alt="user image"
                 width={90}
                 height={90}
@@ -97,6 +114,7 @@ const UnlockedHome = ({ children }: any) => {
             }
           />
 
+<<<<<<< HEAD
           <br/><br/>
 
           <div className="max-w-6xl m-auto">
@@ -114,6 +132,8 @@ const UnlockedHome = ({ children }: any) => {
             </Card>
           </div>
 
+=======
+>>>>>>> c585eaca95a86df794aa225c627fb86fd7ed0b9a
           <br />
         </main>
 
