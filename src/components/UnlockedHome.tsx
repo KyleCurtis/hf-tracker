@@ -139,6 +139,12 @@ const UnlockedHome = ({ children }: any) => {
                       className="border-2 border-solid border-black"
                     />
                   </form>
+
+                  <br />
+
+                  <button className="bg-green-600 p-1 text-[#ffffff] font-bold border-2 border-solid border-black rounded-md">
+                    Submit
+                  </button>
                 </div>
               }
             </Typography>
