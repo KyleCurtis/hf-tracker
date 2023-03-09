@@ -4,6 +4,42 @@ import TopNav from "./TopNav";
 import Hero from "./Hero";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+import { Card, Title, AreaChart, Flex, Text } from "@tremor/react";
+
+const chartdata = [
+  {
+    date: "Mon",
+    "Distance (mi)": 2,
+  },
+  {
+    date: "Tue",
+    "Distance (mi)": 5,
+  },
+  {
+    date: "Wed",
+    "Distance (mi)": 1,
+  },
+  {
+    date: "Thu",
+    "Distance (mi)": 0,
+  },
+  {
+    date: "Fri",
+    "Distance (mi)": 3,
+  },
+  {
+    date: "Sat",
+    "Distance (mi)": 4,
+  },
+  {
+    date: "Sun",
+    "Distance (mi)": 2,
+  },
+];
+
+const dataFormatter = (number: number) => {
+  return Intl.NumberFormat("us").format(number).toString() + " mile(s)";
+};
 
 const UnlockedHome = ({ children }: any) => {
   const { data: session } = useSession();
@@ -60,6 +96,22 @@ const UnlockedHome = ({ children }: any) => {
             }
           />
 
+          <div className="p-[50px]" />
+
+          <div className="max-w-6xl m-auto">
+          <Card>
+            <Title>Weekly Running Data</Title>
+              <AreaChart
+                data={chartdata}
+                categories={["Distance (mi)"]}
+                dataKey="date"
+                height="h-72"
+                colors={["indigo"]}
+                valueFormatter={dataFormatter}
+                marginTop="mt-4"
+              />
+          </Card>
+          </div>
           <br />
         </main>
 
