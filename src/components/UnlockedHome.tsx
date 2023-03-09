@@ -1,3 +1,4 @@
+import * as React from "react";
 import Head from "next/head";
 import Image from "next/image";
 import TopNav from "./TopNav";
@@ -5,6 +6,9 @@ import Hero from "./Hero";
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { Card, Title, AreaChart, Flex, Text } from "@tremor/react";
+import Popover from "@mui/material/Popover";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 const chartdata = [
   {
@@ -44,13 +48,21 @@ const dataFormatter = (number: number) => {
 const UnlockedHome = ({ children }: any) => {
   const { data: session } = useSession();
 
-  const banner = () => {
-    return (
-      <div className="h-screen w-screen">
-        <h1>test</h1>
-      </div>
-    );
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null
+  );
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
   };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
   return (
     <>
       <Head>
@@ -96,11 +108,47 @@ const UnlockedHome = ({ children }: any) => {
             }
           />
 
+          <Button
+            aria-describedby={id}
+            variant="contained"
+            onClick={handleClick}
+          >
+            Enter Running Data
+          </Button>
+          <Popover
+            id={id}
+            open={open}
+            anchorEl={anchorEl}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+          >
+            <Typography sx={{ p: 2 }}>
+              {
+                <div>
+                  <form className="p-3">
+                    date: <input type="date" name="week_date" />
+                    <br />
+                    <br />
+                    Distance (mi):{" "}
+                    <input
+                      type="text"
+                      name="distance"
+                      className="border-2 border-solid border-black"
+                    />
+                  </form>
+                </div>
+              }
+            </Typography>
+          </Popover>
+
           <div className="p-[50px]" />
 
           <div className="max-w-6xl m-auto">
-          <Card>
-            <Title>Weekly Running Data</Title>
+            <Card>
+              <Title>Weekly Running Data</Title>
               <AreaChart
                 data={chartdata}
                 categories={["Distance (mi)"]}
@@ -110,7 +158,7 @@ const UnlockedHome = ({ children }: any) => {
                 valueFormatter={dataFormatter}
                 marginTop="mt-4"
               />
-          </Card>
+            </Card>
           </div>
           <br />
         </main>
