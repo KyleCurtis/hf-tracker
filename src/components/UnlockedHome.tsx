@@ -108,6 +108,8 @@ const UnlockedHome = ({ children }: any) => {
             }
           />
 
+          <div className="p-[50px]" />
+
           <Button
             aria-describedby={id}
             variant="contained"
